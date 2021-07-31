@@ -13,6 +13,17 @@ enterLetterButton.addEventListener("click",function () {
     guessLetter(letterInput.value)
 })
 
+// Execute a function when the user releases a key on the keyboard
+letterInput.addEventListener("keyup", function(event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.key === 'Enter') {
+        // Cancel the default action, if needed
+        event.preventDefault();
+        // Trigger the button element with a click
+        guessLetter(letterInput.value)
+    }
+});
+
 wordBoard.textContent = ""
 for (let i = 0; i < word.length; i++) {
     console.log(word[i])
@@ -44,10 +55,11 @@ function guessLetter(letter) {
         if (checkWin()) { gameText.textContent = "You guessed the word!"}
     } else {
         incorrectLetters += letter;
-        if (remainingGuesses > 0) {
+        if (remainingGuesses > 1) {
             remainingGuesses--;
+            gameText.textContent = "You have " + remainingGuesses + " guesses remaining."
         } else {
-            gameText = "Sorry you ran out of guesses"
+            gameText.textContent = "Sorry you ran out of guesses"
         }
         updateIncLetters();
     }

@@ -7,14 +7,19 @@
 </head>
 <body>
 <h1 style="padding-bottom: 1rem">Hangman</h1>
-<h2 id="wordBoard">xx</h2>
+<h2 id="wordBoard"></h2>
 <p id="gameText">Enter a letter below:</p>
 <div class="center" style="text-align: center">
-<input id="letterInput" type="text" maxlength="1">
-    <button id="enterLetterBtn">Enter</button>
+    <input id="letterInput" type="text" maxlength="1" style="padding: 0.25em">
+    <button id="enterLetterBtn" class="enterButton">Enter</button>
 </div>
-<h2>Incorrect letters</h2>
+<div id="incorrectDiv" class="hidden">
+<h2>Incorrect guesses</h2>
 <p id="incorrectLetters"></p>
+</div>
+<div id="gameOver" style="text-align: center" class="hidden">
+    <button id="newGame" class="gameButton"> Play again</button>
+</div>
 <script src="js/script.js"></script>
 </body>
 <footer>
